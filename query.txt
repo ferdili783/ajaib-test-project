@@ -1,0 +1,14 @@
+CREATE TABLE `Transaction` 
+( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `amount` INTEGER NOT NULL DEFAULT 0 )
+
+INSERT INTO [transaction] ('amount') VALUES (5);
+INSERT INTO [transaction] ('amount') VALUES (2);
+INSERT INTO [transaction] ('amount') VALUES (8);
+INSERT INTO [transaction] ('amount') VALUES (62);
+INSERT INTO [transaction] ('amount') VALUES (34);
+
+select id, amount from [transaction];
+
+select a.id, a.amount, 
+(select SUM(amount) as total from [transaction]
+where id <= a.id) as total from [transaction] a;
