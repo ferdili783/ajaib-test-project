@@ -39,8 +39,8 @@ export default class MaximumDiffScene extends Component {
                         break;
                     }
                     else if(!isNaN(compareNumber)){
-                        let diff = Math.abs(number - compareNumber);
-                        if(diff > 0){
+                        if(number < compareNumber){
+                            let diff = Math.abs(number - compareNumber);
                             arrayDiff.push(diff);
                         }
                     }
